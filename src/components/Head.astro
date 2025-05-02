@@ -1,0 +1,42 @@
+---
+const {
+  title = "Advanced Towbars Melbourne | The Towbar Installation Experts, We Come To You",
+  description = "Melbourne’s trusted towbar installation specialists. Advanced Towbars offers expert towbar fitting, electric brake controllers, towing accessories & more for all vehicle types. Get a free quote today.",
+  image = "/images/og-image.jpg", // Replace with actual OG image path
+  url = "https://www.advancedtowbars.com.au",
+} = Astro.props;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- ✅ SEO Meta -->
+  <meta name="description" content={description} />
+  <link rel="canonical" href={url} />
+
+  <!-- ✅ Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta property="og:url" content={url} />
+
+  <!-- ✅ Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+
+  <!-- Optional preload -->
+  <link rel="preload" href={image} as="image" />
+
+  <!-- Page-specific custom <head> content -->
+  
+  <slot name="head" />
+</head>

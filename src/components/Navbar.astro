@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+
+const phoneNumber = "1300238869";
+---
+
+<nav class="w-full bg-atb-p-blue shadow-md px-4 py-3">
+  <div class="max-w-7xl mx-auto flex items-center justify-between relative">
+    <!-- 📞 Phone CTA Button (Left) -->
+    <a
+      href={`tel:${phoneNumber}`}
+      class="flex items-center gap-2 text-atb-s-white font-semibold hover:ring-offset-atb-s-white hover:ring-2 hover:ring-atb-s-white rounded-full px-4 py-2"
+    >
+      <img src="/icon/phone.svg" alt="Phone" class="w-8 h-8" />
+      <span>Call 1300 238 869</span>
+    </a>
+
+    <!-- 🏢 Logo (Center) -->
+    <a href="/" class="flex items-center justify-center flex-grow">
+      <img src="/img/logo.png" alt="Logo" class="w-64 h-auto" />
+    </a>
+
+    <!-- 🍔 Menu Button (Right) -->
+    <button
+      class="flex items-center gap-2 text-atb-s-white font-semibold hover:ring-offset-atb-s-white hover:ring-2 hover:ring-atb-s-white rounded-full px-4 py-2"
+    >
+      <img src="/icon/menu.svg" alt="Menu" class="w-8 h-8" />
+      <span>Menu</span>
+    </button>
+  </div>
+</nav>

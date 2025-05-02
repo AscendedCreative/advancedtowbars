@@ -1,0 +1,118 @@
+---
+const {
+  title = "Advanced Towbars, We Come To You!",
+  subtitle = "",
+  image = "/hero.jpg",
+} = Astro.props;
+// Later, you can accept props if needed (e.g. title, videoId, stats)
+---
+<!-- Hero Section for Advanced Towbars Website -->
+<section class="relative text-atb-s-white overflow-hidden bg-atb-black-dark">
+  <!-- 🔁 Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/img/hero-placeholder.jpg"
+      alt="Towbar Installation"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <!-- dark overlay -->
+  </div>
+
+  <!-- 🔹 Foreground Content -->
+  <div
+    class="relative z-10 max-w-7xl mx-auto px-6 py-16 flex flex-col items-center text-center"
+  >
+    <!-- 🟡 Headline + Subline -->
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+      Melbourne’s Towbar Installation Experts
+    </h1>
+    <p class="text-lg md:text-xl max-w-2xl mb-6">
+      Free mobile service. Fast install. Trusted by thousands of happy
+      customers.
+    </p>
+
+    <!-- 🔍 Search Bar (placeholder for VicRoads API) -->
+    <form class="flex flex-col md:flex-row gap-3 w-full max-w-2xl">
+      <input
+        type="text"
+        placeholder="Enter Registration Number"
+        class="flex-1 px-4 py-3 rounded text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <button
+        type="submit"
+        class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition font-semibold"
+      >
+        Lookup Vehicle
+      </button>
+    </form>
+
+    <!-- ⭐ Proofline -->
+    <div
+      class="mt-6 text-sm text-yellow-300 flex flex-col sm:flex-row items-center gap-2"
+    >
+      <span>✅ 11,456 Jobs Completed</span>
+      <span class="flex items-center gap-1">
+        ⭐⭐⭐⭐⭐ <span>5.0 rating (1,000+ reviews)</span>
+      </span>
+    </div>
+
+    <!-- 🎥 Intro Video -->
+    <div class="mt-10 w-full max-w-3xl aspect-video">
+      <iframe
+        class="w-full h-full rounded-lg shadow-lg"
+        src="https://www.youtube.com/embed/TRrxlWzoySA"
+        title="Advanced Towbars Intro"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- 🧩 Benefits Section -->
+    <div
+      class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl"
+    >
+      <!-- Benefit Card 1 -->
+      <div class="text-atb-s-white rounded-lg p-6 text-center">
+        <img
+          src="/icon/service.svg"
+          alt="On-site Install"
+          class="w-32 h-32 mx-auto mb-4 shadow-lg"
+        />
+        <div class="bg-atb-p-blue px-3 py-4 rounded-lg shadow-lg">
+          <h3 class="font-semibold text-xl">
+            Free On-Site Towbar Installation
+          </h3>
+          <p class="text-md mt-2">
+            We come to you, saving you time and hassle.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benefit Card 2 -->
+      <div class="text-atb-s-white rounded-lg p-6 text-center">
+        <img
+          src="/icon/towing.svg"
+          alt="All Models"
+          class="w-32 h-32 mx-auto mb-4 shadow-lg"
+        />
+        <div class="bg-atb-p-blue px-3 py-4 rounded-lg shadow-lg">
+          <h3 class="font-semibold text-xl">Towbars For All Makes & Models</h3>
+          <p class="text-md mt-2">
+            We fit to any car, SUV, or commercial vehicle.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benefit Card 3 -->
+      <div class="text-atb-s-white rounded-lg p-6 text-center">
+        <img
+          src="/icon/experience.svg"
+          alt="Experience"
+          class="w-32 h-32 mx-auto mb-4 shadow-lg"
+        />
+        <div class="bg-atb-p-blue px-3 py-4 rounded-lg shadow-lg">
+        <h3 class="font-semibold text-xl">Over 30 Years Of Experience</h3>
+        <p class="text-md mt-2">Trusted by thousands across Victoria.</p>
+      </div>
+    </div>
+  </div>
+</section>

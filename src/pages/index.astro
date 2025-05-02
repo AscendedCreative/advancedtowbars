@@ -1,16 +1,145 @@
 ---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Head from "../components/Head.astro";
+import Hero from "../components/Hero.astro";
+import Title from "../components/Title.astro";
+import StepJourney from "../components/StepJourney.astro";
+import "aos/dist/aos.css";
+import Feedback from "../components/Feedback.astro";
+import Faqs from "../components/Faqs.astro";
+import BrandCarousel from "../components/BrandCarousel.astro";
 
+import { getCollection, type CollectionEntry } from "astro:content";
+import Blog from "../components/Blog.astro";
+import Footer from "../components/Footer.astro";
+
+type BlogPost = CollectionEntry<"blog">;
+
+const posts = (await getCollection("blog")).sort(
+  (a: BlogPost, b: BlogPost) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+const [featured, ...recentPosts] = posts;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <Head />
+
+  <body>
+    <!-- ✅ Navbar at top -->
+    <Navbar />
+
+    <!-- ✅ Page content -->
+    <main>
+      <Hero />
+
+      <Title
+        attention="How We Help You"
+        headline="Your Towbar Installation Journey"
+        subline="From consultation to installation, we make the process seamless. Get expert advice, a tailored quote, secure your booking, and enjoy a hassle-free towbar installation—all with clear communication at every step."
+      />
+
+      <StepJourney />
+
+      <Title
+        attention="Why Choose Us"
+        headline="What Our Customers Say"
+        subline="We take pride in our work and our customers' satisfaction. Our commitment to quality and service is reflected in the positive feedback we receive. Here are some testimonials from our happy customers."
+        bg="bg-atb-t-gray"
+      />
+
+      <Feedback
+        reviews={[
+          {
+            name: "John D.",
+            rating: 5,
+            content:
+              "Fantastic on-site service. The team was super professional.",
+          },
+          {
+            name: "Ben D.",
+            rating: 4,
+            content: "Quick install and great support. Highly recommended!",
+          },
+        ]}
+        platforms={[
+          { name: "Google", logo: "/logos/google.svg" },
+          { name: "Trustpilot", logo: "/logos/trustpilot.svg" },
+        ]}
+      />
+      <Title
+        attention="Have Questions?"
+        headline="Frequently Asked Questions"
+        subline="We understand that you may have questions about our services. Here are some of the most common inquiries we receive. If you have any other questions, feel free to reach out to us."
+        bg=""
+      />
+      <Faqs
+        faqs={[
+          {
+            question: "How long does it take to fit a towbar?",
+            answer:
+              "It does not take very long to install towbars with most vehicles taking up to roughly two to three hours for a towbar fixture. Certain towbars may be more complex and would require more time to fit due to either added features on the vehicle or an unconventional design of the vehicle itself.",
+          },
+          {
+            question: "Can I transfer my towbar to another vehicle?",
+            answer:
+              "As is the case with most towbars in Melbourne, it is not possible to transfer a towbar to another vehicle. As experienced manufacturers, we highly recommend against transferring a towbar onto any other vehicle for the simple reason that towbars are vehicle specific. So, you need to choose a towbar type that is ideal for the vehicle you are towing.",
+          },
+          {
+            question:
+              "What is the difference between light-duty and heavy-duty towing?",
+            answer:
+              "The primary difference between light-duty towing and heavy-duty towing is the Type of hitch and is dependent on the manufacturer’s specifications. Some vehicles are rated to tow more than others.",
+          },
+          {
+            question:
+              "What is the difference between removable and fixed ball towbars?",
+            answer:
+              "When it comes to removable and fixed ball towbars the difference is quite simple. Removable ball towbars are specially designed to be removable when not in use through a release mechanism in between the hitch and the tongue. Fixed ball head towbars, on the other hand, are designed in such a way that they should not be removed once they are fitted to the vehicle and are often bolted to the Towbar.",
+          },
+          {
+            question: "What does the towbar come supplied with?",
+            answer:
+              "There are a number of additional accessories when it comes to towbar supplies. They include the towbar itself, the coupling, additional safety shackles, the tow ball, the ball mount (which is also known as a tongue).",
+          },
+        ]}
+      />
+      <Title
+        attention="Our Trusted Partners"
+        headline="Brands We Work With"
+        subline="We are proud to partner with leading brands in the industry. Our collaborations ensure that we provide you with the best products and services available."
+        bg="bg-atb-t-gray"
+      />
+      <BrandCarousel
+        brands={[
+          { name: "Baxters", logo: "/brands/baxters.svg" },
+          { name: "BTA", logo: "/brands/bta.svg" },
+          { name: "Hayman Reese", logo: "/brands/hayman-reese.svg" },
+          { name: "Narva", logo: "/brands/narva.svg" },
+          { name: "RedArc", logo: "/brands/redarc.svg" },
+          { name: "TAG", logo: "/brands/tag.svg" },
+          { name: "Trailboss", logo: "/brands/trailboss.svg" },
+        ]}
+      />
+      <Title
+        attention="Stay Updated"
+        headline="Latest News & Insights"
+        subline="Stay informed with our latest blog posts. We cover a range of topics related to towbars, towing, and vehicle accessories. Check out our blog for more information."
+        bg=""
+      />
+
+      <Blog featured={featured} posts={recentPosts} />
+      <Footer />
+
+    </main>
+
+    <!-- ✅ Scripts -->
+    <script type="module" src="/src/scripts/init-aos.js"></script>
+    <script type="module" src="/src/scripts/autoScrollReviews.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer></script>
+  </body>
 </html>

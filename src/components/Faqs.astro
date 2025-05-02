@@ -1,0 +1,50 @@
+---
+// Faqs.astro
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  faqs: FaqItem[];
+  bg?: string;
+}
+
+const { faqs, bg = "" } = Astro.props;
+---
+
+<section class={`w-full py-16 ${bg}`}>
+  <div class="max-w-4xl mx-auto space-y-6">
+    {
+      faqs.map((faq, index) => (
+        <details
+          class="border border-gray-300 rounded overflow-hidden shadow-sm group"
+          {...(index === 0 ? { open: true } : {})}
+        >
+          <summary class="px-6 py-4 cursor-pointer font-semibold text-atb-black-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-atb-p-blue">
+            <div class="flex justify-between items-center">
+              <span>{faq.question}</span>
+              <svg
+                class="w-5 h-5 text-atb-black-light transition-transform duration-300 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+          </summary>
+          <div class="px-6 py-4 text-atb-black-light bg-gray-50">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</section>

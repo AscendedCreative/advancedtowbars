@@ -1,0 +1,118 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).slice(0, 3);
+const phoneNumber = "1300238869";
+---
+
+<footer class="bg-atb-p-blue text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <!-- Left: Recent Posts -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4">Recent Posts</h2>
+      <ul class="space-y-2">
+        {
+          posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.slug}`} class="hover:underline text-sm">
+                {post.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Center: Contact & Hours -->
+    <div class="text-center">
+      <div class="mb-6 space-y-3">
+        <a
+          href={`tel:${phoneNumber}`}
+          class="flex justify-center items-center gap-2 text-atb-s-white font-semibold hover:ring-offset-atb-s-white hover:ring-2 hover:ring-atb-s-white rounded-full px-4 py-2"
+        >
+          <img src="/icon/phone.svg" alt="Phone" class="w-12 h-12" />
+          <span class="text-2xl">Call 1300 238 869</span>
+        </a>
+        <div class="flex justify-center gap-4">
+          <a
+            href="mailto:sales@advancedtowbars.com.au"
+            class="hover:text-atb-p-blue-dark"
+          >
+            <img src="/icon/email.svg" alt="Email" class="w-12 h-12" />
+          </a>
+          <a
+            href="https://facebook.com/advancedtowbars"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-atb-p-blue-dark"
+          >
+            <img src="/icon/facebook.svg" alt="Facebook" class="w-12 h-12" />
+          </a>
+          <a
+            href="https://instagram.com/advancedtowbars"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-atb-p-blue-dark"
+          >
+            <img src="/icon/instagram.svg" alt="Instagram" class="w-12 h-12" />
+          </a>
+        </div>
+      </div>
+      <div class="mt-6">
+        <h3 class="font-semibold text-lg mb-2">Opening Hours</h3>
+        <p class="text-sm leading-relaxed">Monday – Sunday: 8:00AM – 5:00PM</p>
+      </div>
+    </div>
+
+    <!-- Right: Our Services -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4">Our Services</h2>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="/services/towbar-installation" class="hover:underline"
+            >Towbar Installation</a
+          >
+        </li>
+        <li>
+          <a href="/services/electric-brakes" class="hover:underline"
+            >Electric Brake Controllers</a
+          >
+        </li>
+        <li>
+          <a href="/services/towing-accessories" class="hover:underline"
+            >Towing Accessories</a
+          >
+        </li>
+        <li>
+          <a href="/services/reversing-cameras" class="hover:underline"
+            >Reversing Cameras</a
+          >
+        </li>
+        <li>
+          <a href="/services/truck-bar-fitting" class="hover:underline"
+            >Truck bar Fitting</a
+          >
+        </li>
+        <li>
+          <a
+            href="/services/4x4-accessory-installations"
+            class="hover:underline">4x4 Accessory Installations</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div
+    class="border-t border-atb-p-blue-light mt-12 pt-6 text-center text-sm text-atb-p-blue-light"
+  >
+    <p>© Advanced Towbars 2025. All Rights Reserved.</p>
+    <div class="mt-2 space-x-4">
+      <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+      <a href="/terms-and-conditions" class="hover:underline"
+        >Terms & Conditions</a
+      >
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,57 @@
+---
+const {
+  stepNumber = 1,
+  icon = "/infographics/call-us.svg",
+  title = "Step Title",
+  description = "Step description goes here.",
+  animation = "",
+  delay = 0,
+  side = "left", // for alternating layout
+} = Astro.props;
+
+const isRight = side === "right";
+const layout = isRight ? "md:flex-row-reverse" : "md:flex-row";
+const textAlign = isRight ? "md:text-right" : "md:text-left";
+const contentAlign = isRight ? "md:items-end" : "md:items-start";
+---
+
+<div
+  class={`relative pt-16 flex flex-col ${layout} items-center ${contentAlign} text-center ${textAlign} gap-6 px-4 sm:px-6 md:px-0 w-full max-w-5xl mx-auto`}
+  data-aos={animation}
+  data-aos-delay={delay}
+>
+  <!-- Step circle (centered over the timeline) -->
+  <!-- Step circle -->
+  <div
+    class="step-circle absolute top-0 left-1/2 transform -translate-x-1/2 z-20"
+  >
+    <div
+      class="w-10 h-10 rounded-full bg-atb-p-blue text-atb-s-white flex items-center justify-center font-bold text-sm shadow-lg"
+    >
+      {stepNumber}
+    </div>
+  </div>
+
+  <!-- Step content (icon + card) -->
+  <div class="z-10 flex flex-col items-center md:items-start w-full max-w-xl">
+    <div class="mb-4 w-full">
+      <img
+        src={icon}
+        alt={`Step ${stepNumber} icon`}
+        class="w-full max-w-lg h-auto object-contain mx-auto"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-md shadow-md w-full">
+      <h3
+        class="text-lg sm:text-xl md:text-2xl font-semibold text-atb-black mb-2"
+      >
+        {title}
+      </h3>
+      <p class="text-sm sm:text-base text-atb-black-light leading-relaxed">
+        {description}
+      </p>
+    </div>
+  </div>
+</div>

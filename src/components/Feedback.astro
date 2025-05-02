@@ -1,0 +1,139 @@
+---
+const googleReviews = [
+  {
+    name: "Sarah L.",
+    rating: 5,
+    content: "Fantastic on-site service. The team was super professional.",
+  },
+  {
+    name: "Ben D.",
+    rating: 4,
+    content: "Quick install and great support. Highly recommended!",
+  },
+  {
+    name: "Emily R.",
+    rating: 5,
+    content:
+      "Booked online and the team arrived exactly on time. So impressed!",
+  },
+  {
+    name: "Marcus G.",
+    rating: 5,
+    content: "Fast, efficient, and no surprises with pricing.",
+  },
+  {
+    name: "Tania M.",
+    rating: 5,
+    content: "Professional and no mess left behind.",
+  },
+  {
+    name: "David H.",
+    rating: 5,
+    content: "Great experience from start to finish.",
+  },
+];
+
+const trustpilotReviews = [
+  {
+    name: "Michaela R.",
+    rating: 5,
+    content: "A+ service, the towbar works flawlessly.",
+  },
+  {
+    name: "Jason T.",
+    rating: 5,
+    content: "Got a quote fast and installation was smooth.",
+  },
+  {
+    name: "Kelly S.",
+    rating: 5,
+    content: "Polite technician and smooth process.",
+  },
+  {
+    name: "Leon W.",
+    rating: 5,
+    content: "Excellent service, explained everything clearly.",
+  },
+  {
+    name: "Amanda P.",
+    rating: 5,
+    content: "Followed up after install. Very professional.",
+  },
+  {
+    name: "Rick T.",
+    rating: 5,
+    content: "Flawless install. Great communication.",
+  },
+];
+---
+
+<section class="py-20 bg-atb-t-gray text-center">
+ 
+  <!-- Google Reviews Carousel -->
+  <div class="mb-16">
+    <h3 class="text-xl font-semibold mb-4 flex items-center justify-center">
+      <img src="/icon/google.svg" alt="Google" class="w-6 h-6 mr-2" />
+      Google Reviews
+    </h3>
+    <div
+      id="google-carousel"
+      class="overflow-x-auto whitespace-nowrap scrollbar-hide scroll-smooth"
+    >
+      <div class="flex gap-6 px-4 sm:px-6 snap-x snap-mandatory scroll-pl-4">
+        {
+          googleReviews.map((review) => (
+            <div class="min-w-[280px] sm:min-w-[320px] max-w-sm bg-white shadow-md rounded-lg p-6 text-left snap-center shrink-0 mx-auto break-words overflow-hidden">
+              <div class="flex items-center mb-2">
+                <div class="font-bold mr-2">{review.name}</div>
+                <div class="flex text-yellow-400">
+                  {Array.from({ length: review.rating }).map(() => (
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                      <path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.955L10 0l2.95 5.955 6.562.955-4.756 4.635 1.122 6.545z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              <p class="text-sm text-atb-black-light break-words leading-relaxed">
+                {review.content}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Trustpilot Reviews Carousel -->
+  <div>
+    <h3 class="text-xl font-semibold mb-4 flex items-center justify-center">
+      <img src="/icon/trustpilot.svg" alt="Trustpilot" class="w-6 h-6 mr-2" />
+      Trustpilot Reviews
+    </h3>
+    <div
+      id="trustpilot-carousel"
+      class="overflow-x-auto whitespace-nowrap scrollbar-hide scroll-smooth"
+    >
+      <div class="flex gap-6 px-4 sm:px-6 snap-x snap-mandatory scroll-pl-4">
+        {
+          trustpilotReviews.map((review) => (
+            <div class="min-w-[280px] sm:min-w-[320px] max-w-sm bg-white shadow-md rounded-lg p-6 text-left snap-center shrink-0 mx-auto break-words overflow-hidden">
+              <div class="flex items-center mb-2">
+                <div class="font-bold mr-2">{review.name}</div>
+                <div class="flex text-yellow-400">
+                  {Array.from({ length: review.rating }).map(() => (
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                      <path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.955L10 0l2.95 5.955 6.562.955-4.756 4.635 1.122 6.545z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              <p class="text-sm text-atb-black-light break-words leading-relaxed">
+                {review.content}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,74 @@
+---
+import StepCard from "./StepCard.astro";
+import TimelineDot from "./TimelineDot.astro";
+
+const steps = [
+  {
+    stepNumber: 1,
+    icon: "/infographics/call-us.svg",
+    title: "Give Us a Call",
+    description:
+      "When you call us for a consultation, our team of experts will listen to your needs and provide you with all the information you need to make an informed decision.",
+  },
+  {
+    stepNumber: 2,
+    icon: "/infographics/quote.svg",
+    title: "We provide advice and a quote",
+    description:
+      "During your consultation, we’ll answer any questions you may have and provide you with a quote for your towbar installation.",
+  },
+  {
+    stepNumber: 3,
+    icon: "/infographics/deposit.svg",
+    title: "You make a deposit",
+    description:
+      "If you agree to the quote, we’ll book in your installation and take a deposit to book it in.",
+  },
+  {
+    stepNumber: 4,
+    icon: "/infographics/instal.svg",
+    title: "We install your towbar",
+    description:
+      "Our team installs your towbar on-site and ensures everything is secure, safe, and ready to tow.",
+  },
+];
+---
+
+<div class="relative py-20 bg-atb-s-white">
+  <!-- Center timeline line -->
+  <div
+    id="timeline-line"
+    class="timeline-line-start absolute left-1/2 w-1 bg-atb-p-blue transform -translate-x-1/2 z-0"
+    style="height: 0;"
+  >
+  </div>
+
+  <div
+    class="max-w-6xl mx-auto flex flex-col gap-32 relative z-10 pb-28 px-4 sm:px-6"
+  >
+    {
+      steps.map((step, index) => {
+        const side = index % 2 === 0 ? "left" : "right"; // alternate layout
+
+        return (
+          <>
+            <StepCard
+              stepNumber={step.stepNumber}
+              icon={step.icon}
+              title={step.title}
+              description={step.description}
+              animation="fade-up"
+              delay={index * 150}
+              side={side}
+            />
+            {index < steps.length - 1 && (
+              <div class="relative h-12">
+                <TimelineDot />
+              </div>
+            )}
+          </>
+        );
+      })
+    }
+  </div>
+</div>

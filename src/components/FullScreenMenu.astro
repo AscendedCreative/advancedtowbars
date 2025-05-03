@@ -1,0 +1,56 @@
+---
+// FullScreenMenu.astro
+const { open } = Astro.props;
+---
+
+<div
+  x-show={open}
+  x-transition
+  class="fixed inset-0 bg-atb-p-blue bg-opacity-90 z-50 flex flex-col items-center justify-center space-y-8 text-center text-white text-2xl"
+  @click.outside="open = false"
+>
+  <h2 class="text-3xl font-bold mb-4">Services</h2>
+  <ul class="space-y-4">
+    <li>
+      <a href="/towbar-installation" @click="open = false"
+        >Towbar Installation</a>
+    </li>
+    <li>
+      <a href="/electric-brake-controllers" @click="open = false"
+        >Electric Brake Controllers</a>
+    </li>
+    <li>
+      <a href="/towing-accessories" @click="open = false">Towing Accessories</a>
+    </li>
+    <li>
+      <a href="/reversing-cameras" @click="open = false">Reversing Cameras</a>
+    </li>
+    <li>
+      <a href="/truck-bar-fitting" @click="open = false">Truck Bar Fitting</a>
+    </li>
+    <li>
+      <a href="/4x4-accessory-installation" @click="open = false"
+        >4x4 Accessory Installation</a>
+    </li>
+  </ul>
+
+  <h2 class="text-3xl font-bold mt-10 mb-4">Navigation</h2>
+  <ul class="space-y-4">
+    <li><a href="#Home" @click="open = false">Home</a></li>
+    <li><a href="#HowWeHelpYou" @click="open = false">How We Help You</a></li>
+    <li><a href="#WhyChooseUs" @click="open = false">Why Choose Us</a></li>
+    <li><a href="#HaveQuestions" @click="open = false">Have Questions</a></li>
+    <li>
+      <a href="#OurTrustedPartners" @click="open = false"
+        >Our Trusted Partners</a>
+    </li>
+    <li><a href="#Blog" @click="open = false">Blog</a></li>
+  </ul>
+
+  <button
+    @click="open = false"
+    class="absolute top-4 right-6 text-3xl font-bold text-white"
+  >
+    ×
+  </button>
+</div>

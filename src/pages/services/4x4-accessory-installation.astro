@@ -1,0 +1,111 @@
+---
+// src/pages/services/4x4-accessory-installation.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="4x4 Accessory Installation"
+  description="Custom 4x4 accessory fitting for off-road vehicles and adventure-ready setups."
+>
+  <!-- 🏞️ Hero Section -->
+  <section
+    class="relative w-full h-96 bg-cover bg-center text-white flex items-center justify-center"
+    style="background-image: url('/services/4x4-hero.jpg');"
+  >
+    <div class="bg-black bg-opacity-60 p-8 rounded text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">4x4 Accessory Installation</h1>
+      <p class="mt-2 text-lg">
+        Gear up your 4WD for off-road adventures with expert accessory fitting
+      </p>
+    </div>
+  </section>
+
+  <!-- 🔧 Expandable Accessory Types -->
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <details
+      x-data="{ open: false }"
+      x-bind:open="open"
+      @toggle="open = !open"
+      class="border rounded-lg p-6 shadow-md"
+    >
+      <summary
+        class="font-semibold text-lg flex items-center gap-2 cursor-pointer"
+      >
+        <span class="text-green-600" x-text="open ? '➖' : '➕'"></span>
+        What 4x4 Accessories Do We Install?
+      </summary>
+      <div class="mt-4 text-gray-700">
+        <p class="mb-4">
+          We supply and professionally fit a wide range of 4WD accessories:
+        </p>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Bullbars & nudge bars</li>
+          <li>Snorkels & air intake systems</li>
+          <li>Roof racks & roof platforms</li>
+          <li>Dual battery systems</li>
+          <li>Canopies & trays</li>
+          <li>Recovery gear mounting</li>
+          <li>Spotlights, light bars & UHF antennas</li>
+        </ul>
+        <p class="mt-4">
+          All installations are completed using high-grade hardware and wiring
+          kits built to withstand harsh Australian conditions.
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <!-- 💬 Why Choose Us -->
+  <section class="bg-atb-t-gray py-12 px-4 text-center text-gray-800">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold mb-4">Why Off-Roaders Choose Us</h2>
+      <p>
+        Whether you're hitting the bush tracks or touring the Outback, our 4x4
+        accessory installations are built tough and installed by experienced
+        technicians. We ensure every fit-out is safe, secure, and tailored to
+        your specific adventure needs.
+      </p>
+    </div>
+  </section>
+
+  <!-- 📞 CTA -->
+  <section class="text-center py-10">
+    <a
+      href="tel:1300238869"
+      class="hover:bg-atb-p-blue-dark bg-atb-p-blue text-white text-lg font-semibold px-8 py-4 rounded-full shadow hover:bg-atb-p-dark transition"
+    >
+      Call Now to Book – 1300 238 869
+    </a>
+  </section>
+
+  <!-- 🧭 Our 4x4 Install Gallery -->
+  <section class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-10">Our Work</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded shadow p-4 flex flex-col items-center">
+        <img
+          src="/services/4x4-install-1.jpg"
+          alt="Toyota Hilux with bullbar and roof rack"
+          class="w-full h-48 object-cover rounded"
+        />
+        <p class="mt-2 font-semibold">Toyota Hilux – Bullbar & Roof Rack</p>
+      </div>
+      <div class="bg-white rounded shadow p-4 flex flex-col items-center">
+        <img
+          src="/services/4x4-install-2.jpg"
+          alt="Isuzu D-MAX with snorkel and canopy"
+          class="w-full h-48 object-cover rounded"
+        />
+        <p class="mt-2 font-semibold">Isuzu D-MAX – Snorkel & Canopy Setup</p>
+      </div>
+      <div class="bg-white rounded shadow p-4 flex flex-col items-center">
+        <img
+          src="/services/4x4-install-3.jpg"
+          alt="Ford Ranger with recovery gear"
+          class="w-full h-48 object-cover rounded"
+        />
+        <p class="mt-2 font-semibold">Ford Ranger – Recovery Gear Mounts</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -2,41 +2,44 @@
 const {
   title = "Advanced Towbars Melbourne | The Towbar Installation Experts, We Come To You",
   description = "Melbourne’s trusted towbar installation specialists. Advanced Towbars offers expert towbar fitting, electric brake controllers, towing accessories & more for all vehicle types. Get a free quote today.",
-  image = "/images/og-image.jpg", // Replace with actual OG image path
-  url = "https://www.advancedtowbars.com.au",
+  image = "/images/og-image.jpg",
+  url = import.meta.env.SITE || "https://www.advancedtowbars.com.au",
 } = Astro.props;
+
+const ogImage = new URL(
+  image,
+  import.meta.env.SITE || "https://www.advancedtowbars.com.au"
+).toString();
 ---
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="generator" content={Astro.generator} />
+
   <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={url} />
 
   <!-- ✅ Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- ✅ SEO Meta -->
-  <meta name="description" content={description} />
-  <link rel="canonical" href={url} />
-
-  <!-- ✅ Open Graph (Facebook, LinkedIn, etc.) -->
+  <!-- ✅ Open Graph (Facebook, LinkedIn) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={image} />
+  <meta property="og:image" content={ogImage} />
   <meta property="og:url" content={url} />
 
   <!-- ✅ Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={image} />
+  <meta name="twitter:image" content={ogImage} />
 
-  <!-- Optional preload -->
-  <link rel="preload" href={image} as="image" />
+  <!-- ✅ Preload OG image -->
+  <link rel="preload" href={ogImage} as="image" />
 
-  <!-- Page-specific custom <head> content -->
-  
+  <!-- Custom additions per page (e.g. structured data, extra styles, etc.) -->
   <slot name="head" />
 </head>

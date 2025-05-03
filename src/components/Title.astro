@@ -1,22 +1,26 @@
 ---
 const {
+  acolor = "text-atb-p-blue",
+  hcolor = "text-atb-black",
+  scolor = "text-atb-black-light",
   attention = "Default Attention",
   headline = "Default Headline",
   subline = "Default Subline",
   bg = "bg-white",
+ 
 } = Astro.props;
 ---
 
 <!-- ✅ Outer wrapper applies the background full-width -->
 <section class={`${bg} w-full`}>
   <div class="text-center py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <h4 class="font-bold mt-6 md:text-xl text-lg text-atb-p-blue">
+    <h4 class=`font-bold mt-6 md:text-xl text-lg ${acolor}`>
       {attention}
     </h4>
-    <h1 class="mt-4 text-4xl md:text-5xl font-bold text-atb-black">
+    <h1 class=`mt-4 text-4xl md:text-5xl font-bold ${hcolor}`>
       {headline}
     </h1>
-    <p class="font-bold mt-6 md:text-xl text-lg text-atb-black-light">
+    <p class=`font-bold mt-6 md:text-xl text-lg ${scolor}`>
       {subline}
     </p>
   </div>

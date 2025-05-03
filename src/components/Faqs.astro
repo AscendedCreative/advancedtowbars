@@ -18,10 +18,10 @@ const { faqs, bg = "" } = Astro.props;
     {
       faqs.map((faq, index) => (
         <details
-          class="border border-gray-300 rounded overflow-hidden shadow-sm group"
+          class="border border-atb-t-gray-dark rounded overflow-hidden shadow-sm group"
           {...(index === 0 ? { open: true } : {})}
         >
-          <summary class="px-6 py-4 cursor-pointer font-semibold text-atb-black-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-atb-p-blue">
+          <summary class="px-6 py-4 cursor-pointer font-semibold text-atb-black-light hover:bg-atb-p-blue-light focus:outline-none focus:ring-2 focus:ring-atb-p-blue">
             <div class="flex justify-between items-center">
               <span>{faq.question}</span>
               <svg
@@ -40,7 +40,7 @@ const { faqs, bg = "" } = Astro.props;
               </svg>
             </div>
           </summary>
-          <div class="px-6 py-4 text-atb-black-light bg-gray-50">
+          <div class="px-6 py-4 text-atb-black-light bg-atb-s-white">
             <p>{faq.answer}</p>
           </div>
         </details>

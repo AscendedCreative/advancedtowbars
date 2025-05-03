@@ -1,0 +1,116 @@
+---
+// src/pages/services/towing-accessories.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Towing Accessories"
+  description="Explore our full range of towing accessories to enhance your towing experience."
+>
+  <!-- 🚘 Hero Section -->
+  <section
+    class="relative w-full h-96 bg-cover bg-center text-white flex items-center justify-center"
+    style="background-image: url('/services/towing-accessories-hero.webp');"
+  >
+    <div class="bg-black bg-opacity-60 p-8 rounded text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">Towing Accessories</h1>
+      <p class="mt-2 text-lg">
+        Equip your vehicle with high-quality towing accessories built for safety
+        and convenience.
+      </p>
+    </div>
+  </section>
+
+  <!-- 📦 Expandable Info Section -->
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <details
+      x-data="{ open: false }"
+      x-bind:open="open"
+      @toggle="open = !open"
+      class="border rounded-lg p-6 shadow-md"
+    >
+      <summary
+        class="font-semibold text-lg flex items-center gap-2 cursor-pointer"
+      >
+        <span class="text-green-600" x-text="open ? '➖' : '➕'"></span>
+        What Towing Accessories Do We Offer?
+      </summary>
+      <div class="mt-4 text-gray-700">
+        <p class="mb-4">
+          We supply and install a wide range of premium towing accessories to
+          suit every setup:
+        </p>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Trailer wiring harnesses</li>
+          <li>Hitch receivers & tongue adaptors</li>
+          <li>Tow balls and drop shanks</li>
+          <li>Anderson plugs and 12-pin plugs</li>
+          <li>Weight distribution systems</li>
+          <li>Sway control accessories</li>
+          <li>Trailer brake controllers</li>
+          <li>Custom towbar-mounted steps</li>
+        </ul>
+        <p class="mt-4">
+          Our accessories are sourced from trusted brands and installed by
+          experienced fitters for total towing confidence.
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <!-- 🙌 Why Choose Us -->
+  <section class="bg-atb-t-gray py-12 px-4 text-center text-gray-800">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold mb-4">
+        Why Accessorise with Advanced Towbars?
+      </h2>
+      <p>
+        We understand every towing setup is different. That’s why we provide
+        fully tailored accessory packages to match your specific needs, vehicle,
+        and trailer. Our team provides expert guidance, safe installation, and a
+        lifetime workmanship guarantee.
+      </p>
+    </div>
+  </section>
+
+  <!-- 📞 Call to Action -->
+  <section class="text-center py-10">
+    <a
+      href="tel:1300238869"
+      class="hover:bg-atb-p-blue-dark bg-atb-p-blue text-white text-lg font-semibold px-8 py-4 rounded-full shadow hover:bg-atb-p-dark transition"
+    >
+      Get Expert Advice – 1300 238 869
+    </a>
+  </section>
+
+  <!-- 🧰 Gallery of Towing Accessories in Action -->
+  <section class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-10">Installed Accessories</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded shadow p-4 flex flex-col items-center">
+        <img
+          src="/services/anderson-plug-install.jpg"
+          alt="Anderson plug install"
+          class="w-full h-48 object-cover rounded"
+        />
+        <p class="mt-2 font-semibold">Anderson Plug with Bracket Mount</p>
+      </div>
+      <div class="bg-white rounded shadow p-4 flex flex-col items-center">
+        <img
+          src="/services/weight-distribution.webp"
+          alt="Weight distribution hitch"
+          class="w-full h-48 object-cover rounded"
+        />
+        <p class="mt-2 font-semibold">Weight Distribution Hitch Setup</p>
+      </div>
+      <div class="bg-white rounded shadow p-4 flex flex-col items-center">
+        <img
+          src="/services/towbar-step.png"
+          alt="Towbar mounted step"
+          class="w-full h-48 object-cover rounded"
+        />
+        <p class="mt-2 font-semibold">Custom Towbar-Mounted Step</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

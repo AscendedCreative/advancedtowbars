@@ -1,31 +1,162 @@
 ---
+// Navbar.astro
 import "../styles/global.css";
-
 const phoneNumber = "1300238869";
 ---
 
-<nav class="w-full bg-atb-p-blue shadow-md px-4 py-3">
-  <div class="max-w-7xl mx-auto flex items-center justify-between relative">
+<nav
+  x-data="{ open: false }"
+  class="sticky top-0 z-50 w-full bg-atb-p-blue shadow-md px-4 py-3"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
     <!-- 📞 Phone CTA Button (Left) -->
     <a
       href={`tel:${phoneNumber}`}
       class="flex items-center gap-2 text-atb-s-white font-semibold hover:ring-offset-atb-s-white hover:ring-2 hover:ring-atb-s-white rounded-full px-4 py-2"
     >
-      <img src="/icon/phone.svg" alt="Phone" class="w-8 h-8" />
-      <span>Call 1300 238 869</span>
+      <img src="/icon/phone.svg" alt="Phone" class="w-6 h-6 md:w-8 md:h-8" />
+      <span class="hidden sm:inline">Call 1300 238 869</span>
     </a>
 
     <!-- 🏢 Logo (Center) -->
     <a href="/" class="flex items-center justify-center flex-grow">
-      <img src="/img/logo.png" alt="Logo" class="w-64 h-auto" />
+      <img src="/img/logo.png" alt="Logo" class="w-40 md:w-64 h-auto" />
     </a>
 
     <!-- 🍔 Menu Button (Right) -->
     <button
-      class="flex items-center gap-2 text-atb-s-white font-semibold hover:ring-offset-atb-s-white hover:ring-2 hover:ring-atb-s-white rounded-full px-4 py-2"
+      @click="open = true"
+      class="flex items-center gap-2 text-atb-s-white font-semibold hover:ring-offset-atb-s-white hover:ring-2 hover:ring-atb-s-white rounded-full px-4 py-2 z-10"
     >
-      <img src="/icon/menu.svg" alt="Menu" class="w-8 h-8" />
-      <span>Menu</span>
+      <img src="/icon/menu.svg" alt="Menu" class="w-6 h-6 md:w-8 md:h-8" />
+      <span class="hidden sm:inline">Menu</span>
     </button>
+  </div>
+
+  <!-- 🔲 Fullscreen Overlay -->
+  <div
+    x-show="open"
+    x-transition
+    class="fixed inset-0 bg-atb-p-blue bg-opacity-95 text-white z-50 flex flex-col items-center justify-center px-6 py-8 overflow-auto"
+    x-cloak
+  >
+    <!-- ❌ Close Button -->
+    <button
+      @click="open = false"
+      class="absolute top-6 right-6 text-white text-3xl font-bold hover:text-gray-300"
+      aria-label="Close Menu"
+    >
+      ✕
+    </button>
+
+    <!-- 🧭 Navigation Links -->
+    <div class="space-y-12 w-full max-w-md">
+      <!-- Services -->
+      <div>
+        <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-center">
+          Services
+        </h2>
+        <ul class="space-y-4 text-center">
+          <li>
+            <a
+              href="/services/towbar-installation"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '/services/towbar-installation', 100)"
+              class="text-xl md:text-2xl hover:underline">Towbar Installation</a
+            >
+          </li>
+          <li>
+            <a
+              href="/services/electric-brake-controllers"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '/services/electric-brake-controllers', 100)"
+              class="text-xl md:text-2xl hover:underline"
+              >Electric Brake Controllers</a
+            >
+          </li>
+          <li>
+            <a
+              href="/services/towing-accessories"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '/services/towing-accessories', 100)"
+              class="text-xl md:text-2xl hover:underline">Towing Accessories</a
+            >
+          </li>
+          <li>
+            <a
+              href="/services/reversing-cameras"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '/services/reversing-cameras', 100)"
+              class="text-xl md:text-2xl hover:underline">Reversing Cameras</a
+            >
+          </li>
+          <li>
+            <a
+              href="/services/truck-bar-fitting"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '/services/truck-bar-fitting', 100)"
+              class="text-xl md:text-2xl hover:underline">Truck Bar Fitting</a
+            >
+          </li>
+          <li>
+            <a
+              href="/services/4x4-accessory-installation"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '/services/4x4-accessory-installation', 100)"
+              class="text-xl md:text-2xl hover:underline"
+              >4x4 Accessory Installation</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Page Sections -->
+      <div>
+        <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-center">
+          Jump to Section
+        </h2>
+        <ul class="space-y-4 text-center">
+          <li>
+            <a
+              href="/"
+              @click="open = false"
+              class="text-xl md:text-2xl hover:underline"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#HowWeHelpYou"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '#HowWeHelpYou', 100)"
+              class="text-xl md:text-2xl hover:underline">How We Help You</a
+            >
+          </li>
+          <li>
+            <a
+              href="#WhyChooseUs"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '#WhyChooseUs', 100)"
+              class="text-xl md:text-2xl hover:underline">Why Choose Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Faqs"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '#Faqs', 100)"
+              class="text-xl md:text-2xl hover:underline">FAQs</a
+            >
+          </li>
+          <li>
+            <a
+              href="#OurPartners"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '#OurPartners', 100)"
+              class="text-xl md:text-2xl hover:underline"
+              >Our Trusted Partners</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Blog"
+              @click.prevent="open = false; setTimeout(() => window.location.href = '#Blog', 100)"
+              class="text-xl md:text-2xl hover:underline">Blog</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </nav>

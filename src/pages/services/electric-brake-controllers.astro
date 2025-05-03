@@ -1,0 +1,129 @@
+---
+// src/pages/services/electric-brake-controllers.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Electric Brake Controllers"
+  description="Professional electric brake controller installation for safe and legal towing."
+>
+  <!-- 🚘 Hero Section -->
+  <section
+    class="relative w-full h-96 bg-cover bg-center text-white flex items-center justify-center"
+    style="background-image: url('/services/electric-brake-hero.jpg');"
+  >
+    <div class="bg-black bg-opacity-60 p-8 rounded text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">Electric Brake Controllers</h1>
+      <p class="mt-2 text-lg">
+        Essential for towing safety and compliance — fitted by our certified
+        experts.
+      </p>
+    </div>
+  </section>
+
+  <!-- 📦 Expandable Info Box -->
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <details
+      x-data="{ open: false }"
+      x-bind:open="open"
+      @toggle="open = !open"
+      class="border rounded-lg p-6 shadow-md"
+    >
+      <summary
+        class="font-semibold text-lg flex items-center gap-2 cursor-pointer"
+      >
+        <span class="text-green-600" x-text="open ? '➖' : '➕'"></span>
+        What is an Electric Brake Controller?
+      </summary>
+      <div class="mt-4 text-gray-700">
+        <p class="mb-4">
+          An <strong>electric brake controller</strong> is a vital device that activates
+          the trailer brakes in sync with your vehicle’s brakes. This ensures:
+        </p>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Improved stopping power & reduced wear on your vehicle</li>
+          <li>Increased control and safety during towing</li>
+          <li>Compliance with towing laws for trailers over 750kg</li>
+        </ul>
+        <p class="mt-4">
+          We install industry-leading models such as Redarc Tow-Pro and
+          Tekonsha, with sleek dash-mounted controls.
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ✅ Why Choose Us -->
+  <section class="bg-atb-t-gray py-12 px-4 text-center text-gray-800">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold mb-4">Why Choose Advanced Towbars?</h2>
+      <p>
+        Our technicians deliver clean, professional installs without damaging
+        your dashboard or wiring. We handle all vehicle types, including 4WDs,
+        SUVs, and utes. You’ll get a legal, safe, and warrantied brake
+        controller setup ready for any towing job.
+      </p>
+    </div>
+  </section>
+
+  <!-- ☎️ Call-to-Action -->
+  <section class="text-center py-10">
+    <a
+      href="tel:1300238869"
+      class="hover:bg-atb-p-blue-dark bg-atb-p-blue text-white text-lg font-semibold px-8 py-4 rounded-full shadow hover:bg-atb-p-dark transition"
+    >
+      Book Your Install – 1300 238 869
+    </a>
+  </section>
+
+  <!-- 🔧 Recent Installations -->
+  <section class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-10">
+      Recent Brake Controller Installs
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded shadow p-4 flex flex-col items-center">
+        <img
+          src="/services/redarc-towpro.webp"
+          alt="Redarc Tow-Pro"
+          class="w-full h-48 object-cover rounded"
+        />
+        <p class="mt-2 font-semibold">Redarc Tow-Pro Elite</p>
+        <a
+          href="#"
+          class="hover:bg-atb-p-blue-dark mt-2 inline-block text-sm bg-atb-p-blue text-white py-2 px-4 rounded-full"
+        >
+          View Install
+        </a>
+      </div>
+      <div class="bg-white rounded shadow p-4 flex flex-col items-center">
+        <img
+          src="/services/Tekonsha-Prodigy.jpg"
+          alt="ekonsha prodigy brake controller"
+          class="w-full h-48 object-cover rounded"
+        />
+        <p class="mt-2 font-semibold">Tekonsha Prodigy</p>
+        <a
+          href="#"
+          class="hover:bg-atb-p-blue-dark mt-2 inline-block text-sm bg-atb-p-blue text-white py-2 px-4 rounded-full"
+        >
+          View Install
+        </a>
+      </div>
+      <div class="bg-white rounded shadow p-4 flex flex-col items-center">
+        <img
+          src="/services/Dash-Install.webp"
+          alt="electric brake controller"
+          class="w-full h-48 object-cover rounded"
+        />
+        <p class="mt-2 font-semibold">Dash Install</p>
+        <a
+          href="#"
+          class="hover:bg-atb-p-blue-dark mt-2 inline-block text-sm bg-atb-p-blue text-white py-2 px-4 rounded-full"
+        >
+          View Install
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

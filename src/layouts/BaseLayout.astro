@@ -1,0 +1,24 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Head from "../components/Head.astro";
+const { title = "Service Page", description = "" } = Astro.props;
+---
+
+<html lang="en">
+  <Head />
+
+  <body class="bg-white text-black">
+    <Navbar />
+    <main class="max-w-7xl mx-auto px-4 py-12">
+      <slot />
+      <!-- ✅ This renders page content passed into <BaseLayout> -->
+    </main>
+    <Footer />
+
+    <!-- ✅ Alpine.js for navbar functionality -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer></script>
+  </body>
+</html>
